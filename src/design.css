@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Germania+One');
+
+span {
+    background: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Germania One', cursive;
+}
+
+.gradient {
+    border-image: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);;
+    background-image: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);
+    background: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);
+}
