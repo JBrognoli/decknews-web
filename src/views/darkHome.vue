@@ -22,42 +22,42 @@
         <v-list dense>
           <v-list-tile @click="">
             <v-list-tile-action>
-              <v-icon>play_circle_outline</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title class="common">START SESSION</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile @click="">
-            <v-list-tile-action>
-              <v-icon>stop</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title class="common">FINISH SESSION</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile @click="">
-            <v-list-tile-action>
-              <v-icon>pageview</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title class="common">VIEW REPORT</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile @click="">
-            <v-list-tile-action>
-              <v-icon>create</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title class="common">JUSTIFY ABSENCE</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile @click="">
-            <v-list-tile-action>
               <v-icon>toc</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="common">MANAGE USERS</v-list-tile-title>
+              <v-list-tile-title class="common">ACCOUNT SETTINGS</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile @click="">
+            <v-list-tile-action>
+              <v-icon>add</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title class="common">NEW DECK</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile @click="">
+            <v-list-tile-action>
+              <v-icon>delete</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title class="common">REMOVE DECK</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile @click="">
+            <v-list-tile-action>
+              <v-icon>add</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title class="common">NEW COLUMN</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile @click="">
+            <v-list-tile-action>
+              <v-icon>delete</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title class="common">REMOVE COLUMN</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -77,7 +77,6 @@
       <v-container>
         <v-layout>
           <v-flex>
-            <BaseTable></BaseTable>
           </v-flex>
         </v-layout>
       </v-container>
