@@ -54,7 +54,6 @@
                 </v-btn>
               </v-flex>
             </div>
-            <BaseSnackbar></BaseSnackbar>
           </v-card-actions>
         </v-flex>
       </v-card>

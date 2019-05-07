@@ -44,7 +44,7 @@
       },
       text: {
         type: String,
-        default: 'Bruno hijo de la putita'
+        default: 'Pattern'
       },
       timeout: {
         type: Number,

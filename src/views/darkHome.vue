@@ -7,6 +7,11 @@
     data: () => ({
       drawer: true
     }),
+      methods: {
+        logout() {
+          this.$router.push('/')
+        },
+      }
   }
 </script>
 
@@ -68,10 +73,10 @@
         clipped-left
       >
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <v-toolbar-title class="display-2 "><span>Deck News</span></v-toolbar-title>
+        <v-toolbar-title class="display-2"><span>Deck News</span></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon>
-          <v-icon class="pr-3"> input</v-icon>
+          <v-icon class="" @click="logout"> input</v-icon>
         </v-btn>
       </v-toolbar>
       <v-container>

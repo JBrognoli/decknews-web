@@ -31,7 +31,7 @@
 <template>
     <div>
         <h1>Snackbar Component</h1>
-        <Snackbar></Snackbar>
+        <Snackbar text="Your deck was created."></Snackbar>
         <br><br><br>
         <h1> Base Button Component</h1>
         <v-btn color="black" class=""> <span>Fodase xD</span> </v-btn>
@@ -45,13 +45,6 @@
         <h1> User Report</h1>
         <UserReport></UserReport>
         <br><br><br>
-        <Notification
-          class="mb-3"
-          color="success"
-          dismissible
-        >
-            <strong>SUCCESS</strong> - This is a regular notification made with `color="success"`
-        </Notification>
         <br><br><br>
         <h1> Base Table Component</h1>
         <BaseTable></BaseTable>
