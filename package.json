@@ -11,6 +11,7 @@
     "core-js": "^2.6.5",
     "localforage": "^1.7.3",
     "scss-loader": "^0.0.1",
+    "stylelint": "^10.0.1",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^8.0.0",

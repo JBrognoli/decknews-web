@@ -1,23 +1,21 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
-    import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
     import BaseTable from '@/components/BaseTable.vue';
     import SessionStart from "@/components/SessionStart.vue";
     import SessionFinish from "@/components/SessionFinish.vue";
     import UserReport from "@/components/UserReport.vue";
     import '../design.css'
-    import Notification from "@/components/Notification.vue";
     import Snackbar from "@/components/BaseSnackbar.vue";
+    import BaseCard from '@/components/BaseCard.vue';
 
     @Component({
         components: {
             Snackbar,
-            Notification,
             UserReport,
             SessionFinish,
             SessionStart,
-            HelloWorld,
             BaseTable,
+            BaseCard,
         },
     })
     export default class Styleguide extends Vue {
@@ -30,6 +28,8 @@
 
 <template>
     <div>
+        <BaseCard></BaseCard>
+        <br><br><br>
         <h1>Snackbar Component</h1>
         <Snackbar text="Your deck was created."></Snackbar>
         <br><br><br>
