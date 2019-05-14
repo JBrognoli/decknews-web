@@ -15,7 +15,6 @@
   >
     {{ text }}
     <v-btn
-      color="pink"
       flat
       @click="snackbar = false"
     >
@@ -30,7 +29,7 @@
     name: "Snackbar",
     data () {
       return {
-        snackbar: true,
+        snackbar: false,
       }
     },
     props: {

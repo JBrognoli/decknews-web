@@ -7,15 +7,19 @@
     import '../design.css'
     import Snackbar from "@/components/BaseSnackbar.vue";
     import BaseCard from '@/components/BaseCard.vue';
+    import BaseDialog from "@/components/BaseDialog.vue";
+    import BaseButton from "@/components/BaseButton.vue";
 
     @Component({
         components: {
+            BaseDialog,
             Snackbar,
             UserReport,
             SessionFinish,
             SessionStart,
             BaseTable,
             BaseCard,
+            BaseButton,
         },
     })
     export default class Styleguide extends Vue {
@@ -28,6 +32,13 @@
 
 <template>
     <div>
+        <h1>Base Button Component</h1>
+        <BaseButton>Teste</BaseButton>
+        <br><br><br>
+        <h1>Base Dialog Component</h1>
+        <BaseDialog></BaseDialog>
+        <br><br><br>
+        <h1>Base Card Component</h1>
         <BaseCard></BaseCard>
         <br><br><br>
         <h1>Snackbar Component</h1>

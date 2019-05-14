@@ -23,8 +23,8 @@ export default new Router({
     },
 
     {
-      path: '/darkhome',
-      name: 'darkHome',
+      path: '/home',
+      name: 'home',
       component: darkHome
     },
     {

@@ -31,7 +31,7 @@
         name: "Login",
         methods: {
           login() {
-              this.$router.push('darkHome')
+              this.$router.push('home')
           }
         },
     }

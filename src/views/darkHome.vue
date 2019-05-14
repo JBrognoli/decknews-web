@@ -11,6 +11,9 @@
         logout() {
           this.$router.push('/')
         },
+        goStyleguide() {
+          this.$router.push('/styleguide')
+        },
       }
   }
 </script>
@@ -63,6 +66,14 @@
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title class="common">REMOVE COLUMN</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile @click="goStyleguide">
+            <v-list-tile-action>
+              <v-icon>visibility</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title class="common">VIEW STYLEGUIDE</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>

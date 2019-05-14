@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
       <v-dialog v-model="dialog" max-width="500px" dark>
         <template v-slot:activator="{ on }">
-          <v-btn dark class="mb-2 primary" v-on="on" outline><v-icon left>person_add</v-icon><span> New User</span></v-btn>
+          <v-btn dark class="mb-2" v-on="on" outline><v-icon left>person_add</v-icon><span> New User</span></v-btn>
         </template>
         <v-card>
           <v-card-title>
