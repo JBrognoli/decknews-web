@@ -30,11 +30,11 @@
     name: "TheToolbar",
     components: {TheNavigationDrawer, SessionStart},
     methods: {
-      openNavDrawer() {
-        this.$refs.NavigationDrawer.openDrawer();
-      },
       logout() {
         this.$router.push('/')
+      },
+      openNavDrawer() {
+        this.$refs.NavigationDrawer.openDrawer();
       },
       openDialogSS() {
         this.$refs.SessionStart.openSessionStart();

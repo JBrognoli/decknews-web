@@ -1,39 +1,41 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Styleguide from './views/Styleguide.vue'
-import darkHome from './views/darkHome.vue'
 import Login from './views/Login.vue'
+import BaseTable from './components/BaseTable.vue'
+import TimeRegister from "@/components/TimeRegister.vue";
 
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/styleguide',
-      name: 'styleguide',
-      component: Styleguide
-    },
-
-    {
-      path: '/home',
-      name: 'home',
-      component: darkHome
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
-  ]
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+        {
+            path: '/',
+            name: 'Login',
+            component: Login
+        },
+        {
+            path: '/home',
+            name: 'home',
+            component: TimeRegister
+        },
+        {
+            path: '/users',
+            name: 'users',
+            component: BaseTable
+        },
+        {
+            path: '/styleguide',
+            name: 'styleguide',
+            component: Styleguide
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: () => import('./views/About.vue')
+        }
+    ]
 })

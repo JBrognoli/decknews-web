@@ -1,25 +1,51 @@
 <template>
-  <v-app id="app">
-    <v-content>
-      <router-view/>
-    </v-content>
-  </v-app>
+  <div id="app">
+    <v-app dark>
+      <BaseSnackbar ref="BaseSnackBar"></BaseSnackbar>
+      <SessionStart ref="SessionStart"></SessionStart>
+      <UserReport ref="UserReport"></UserReport>
+
+      <div v-if="logInScreen ">
+        <TheNavigationDrawer ref="NavigationDrawer"></TheNavigationDrawer>
+        <TheFooter></TheFooter>
+      </div>
+      <v-layout>
+        <v-content>
+          <router-view/>
+        </v-content>
+      </v-layout>
+    </v-app>
+  </div>
+
 </template>
 
 <script>
+  import BaseTable from "./components/BaseTable";
+  import BaseSnackbar from "./components/BaseSnackbar"
+  import SessionStart from "./components/SessionStart"
+  import TimeRegister from "./components/TimeRegister"
+  import UserReport from "./components/UserReport";
+  import JustifyForm from "./components/JustifyForm";
+  import TheToolbar from "./components/TheToolbar";
+  import TheNavigationDrawer from "./components/TheNavigationDrawer";
+  import TheFooter from "./components/TheFooter";
+
   export default {
-        name: "App",
-        components: {
-        },
-        data() {
-            return {
-
-            }
-        },
-        methods: {
-
-        },
+    name: "App",
+    components: {JustifyForm, UserReport, BaseTable, BaseSnackbar, SessionStart, TimeRegister, TheFooter, TheToolbar, TheNavigationDrawer},
+    data: () => ({
+    }),
+    methods: {
+      openSnackbar() {
+        this.$refs.BaseSnackBar.openSnackbar();
+      },
+    },
+    computed: {
+      logInScreen() {
+        return this.$route.path !== '/'
+      },
     }
+  }
 </script>
 
 <style>

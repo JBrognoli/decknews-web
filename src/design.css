@@ -7,8 +7,3 @@ span {
     font-family: 'Germania One', cursive;
 }
 
-.gradient {
-    border-image: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);;
-    background-image: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);
-    background: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);
-}
