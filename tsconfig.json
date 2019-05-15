@@ -19,8 +19,7 @@
         "src/*"
       ]
     },
-    "lib": [
-      "esnext",
+    "lib": [      "esnext",
       "dom",
       "dom.iterable",
       "scripthost"

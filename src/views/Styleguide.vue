@@ -1,14 +1,13 @@
-<script lang="ts">
+<script>
     import {Component, Vue} from 'vue-property-decorator';
-    import BaseTable from '@/components/BaseTable.vue';
-    import SessionStart from "@/components/SessionStart.vue";
-    import SessionFinish from "@/components/SessionFinish.vue";
-    import UserReport from "@/components/UserReport.vue";
+    import BaseTable from '../components/BaseTable.vue';
+    import SessionStart from "../components/SessionStart.vue";
+    import SessionFinish from "../components/SessionFinish.vue";
+    import UserReport from "../components/UserReport.vue";
     import '../design.css'
-    import Snackbar from "@/components/BaseSnackbar.vue";
-    import BaseCard from '@/components/BaseCard.vue';
-    import BaseDialog from "@/components/BaseDialog.vue";
-    import BaseButton from "@/components/BaseButton.vue";
+    import Snackbar from "../components/BaseSnackbar.vue";
+    import BaseDialog from "../components/BaseDialog.vue";
+    import BaseButton from "../components/BaseButton";
 
     @Component({
         components: {
@@ -18,7 +17,6 @@
             SessionFinish,
             SessionStart,
             BaseTable,
-            BaseCard,
             BaseButton,
         },
     })

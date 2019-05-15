@@ -1,37 +1,37 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-  <v-layout>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card dark max-width="500px" max-height="500px">
-        <v-card-title primary-title class="title"><span>Selecione o horário de saída:</span></v-card-title>
+  <div>
+    <v-dialog
+      v-model="dialog"
+      width="400"
+      dark
+    >
+      <v-card max-width="500px" max-height="500px">
+        <v-card-title class="title"><span>Selecione o horário de saída:</span></v-card-title>
         <v-layout row wrap class="ml-3">
-          <v-flex xs11 sm5>
+          <v-flex xs12 sm12 md8>
             <v-menu
-              ref="menu"
               v-model="menu2"
               :close-on-content-click="false"
               :nudge-right="40"
-              :return-value.sync="time"
-              lazy
-              transition="scale-transition"
+              :return-value.sync="timeclock"
               offset-y
               full-width
-              max-width="290px"
-              min-width="290px"
+              max-width="250px"
+              min-width="250px"
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  v-model="time"
-                  label="Picker in menu"
+                  v-model="timeClock"
+                  label="Select time"
                   prepend-icon="access_time"
                   v-on="on"
                 ></v-text-field>
               </template>
               <v-time-picker
-                dark
                 v-if="menu2"
-                v-model="time"
+                v-model="timeClock"
                 full-width
-                @click:minute="$refs.menu.save(time)"
+                @click:minute="$refs.menu.save(timeClock)"
               ></v-time-picker>
             </v-menu>
           </v-flex>
@@ -39,7 +39,7 @@
         <v-flex class="pa-2 pl-3">
           <v-card-actions class="pl-3 pb-3">
             <v-flex class="ma-1 text-xs-right">
-              <v-btn flat outline class="subheading" @click="time = null"><span>Clear</span></v-btn>
+              <v-btn flat outline class="subheading" @click="timeClock= null"><span>Clear</span></v-btn>
             </v-flex>
             <div class="text-xs-right">
               <v-flex
@@ -48,39 +48,62 @@
                 <v-btn
                   outline
                   class="subheading"
-                  @click="snackbar = true"
+                  @click="setExpectedTime"
                 >
-                  <span>Bottom Left</span>
+                  <span>Confirm</span>
                 </v-btn>
               </v-flex>
             </div>
           </v-card-actions>
         </v-flex>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-dialog>
+    <BaseSnackbar ref="BaseSnackBar"></BaseSnackbar>
+    <BaseSnackbar ref="BaseSnackBarError" text="Error! Set your time"></BaseSnackbar>
+  </div>
 </template>
 
 <script>
   import BaseSnackbar from "./BaseSnackbar";
+  import BaseDialog from "./BaseDialog";
 
   export default {
     name: "SessionStart",
-    components: {BaseSnackbar},
+    components: {BaseSnackbar, BaseDialog},
     data() {
       return {
-        time: null,
+        timeClock: null,
         menu2: false,
         modal2: false,
         dialog: false,
         color: null,
-        snackbar: false,
+        inSessionIndex: false,
       }
     },
-    methods: {}
+    methods: {
+      openSessionStart() {
+        this.dialog = true;
+      },
+      setExpectedTime() {
+        (this.timeClock) ? this.trueExpectedTime() : this.falseExpectedTime();
+        this.inSessionIndex = true;
+      },
+      trueExpectedTime() {
+        this.dialog = false;
+        this.$refs.BaseSnackBar.openSnackbar();
+      },
+      falseExpectedTime() {
+        this.$refs.BaseSnackBarError.openSnackbar();
+      }
+    },
+
+
   }
 </script>
 
 <style scoped>
 
+  p {
+    background: white;
+  }
 </style>

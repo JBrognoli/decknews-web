@@ -1,121 +1,150 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-  <v-app dark>
-    <v-toolbar flat>
-      <v-toolbar-title class="display-1"><span>Users</span></v-toolbar-title>
-      <v-divider
-        class="mx-2 pl-3"
-        inset
-        vertical
-      ></v-divider>
-      <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px" dark>
-        <template v-slot:activator="{ on }">
-          <v-btn dark class="mb-2" v-on="on" outline><v-icon left>person_add</v-icon><span> New User</span></v-btn>
+  <v-container>
+    <v-app dark>
+      <v-toolbar flat>
+        <v-toolbar-title class="display-1"><span>Users</span></v-toolbar-title>
+        <v-divider
+          class="mx-2 pl-3"
+          inset
+          vertical
+        ></v-divider>
+        <v-spacer></v-spacer>
+        <v-dialog v-model="dialog" max-width="600px" dark>
+          <template v-slot:activator="{ on }">
+            <v-btn dark class="mb-2" v-on="on" outline>
+              <v-icon left>person_add</v-icon>
+              <span> New User</span></v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline ml-4">{{ formTitle }}</span>
+            </v-card-title>
+
+            <v-card-text class="pt-0">
+              <v-container grid-list-md>
+                <v-form
+                  ref="form"
+                  v-model="valid"
+                  lazy-validation
+                >
+                  <v-layout column>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field
+                        v-model="editedUser.name"
+                        required
+                        label="Full name"
+                        prepend-icon="perm_identity"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field
+                        v-model="editedUser.password"
+                        required
+                        label="Password"
+                        prepend-icon="lock"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field
+                        v-model="editedUser.email"
+                        required
+                        label="Email"
+                        prepend-icon="email"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field
+                        v-model="editedUser.birthDate"
+                        required
+                        label="Birth Date"
+                        prepend-icon="cake"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field
+                        v-model="editedUser.entryDate"
+                        required
+                        label="Entry Date"
+                        prepend-icon="favorite"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field
+                        v-model="editedUser.cpf"
+                        required
+                        label="CPF"
+                        prepend-icon="fingerprint"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex x12 sm6 md4>
+                    <v-layout align-center justify-start>
+                      <v-icon class=" pl-1 mr-2">supervisor_account</v-icon>
+                      <e class="mr-3 ">Administrator: </e>
+                      <v-switch
+                        v-model="switch1"
+                        color="red darken-3"
+                      >
+                      </v-switch>
+                    </v-layout>
+                    </v-flex>
+                  </v-layout>
+                </v-form>
+              </v-container>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn outline color="white" flat @click="close"><span>Cancel</span></v-btn>
+              <v-btn outline color="white" flat @click="buttonMethod(editedUser)"><span> Save </span></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-toolbar>
+
+      <v-data-table
+        :headers="headers"
+        :items="users"
+        class="elevation-1"
+        no-data
+        :pagination.sync="pagination"
+      >
+        <template v-slot:items="props">
+          <td class="text-xs-left">{{ props.item.name }}</td>
+          <td class="text-xs-left">{{ props.item.email.toString()}}</td>
+          <td class="text-xs-left">{{ props.item.birthDate }}</td>
+          <td class="text-xs-left">{{ props.item.entryDate }}</td>
+          <td class="text-xs-left">{{ props.item.exitDate }}</td>
+          <td class="justify-center layout px-0">
+            <v-icon
+              small
+              class="mr-2"
+              @click="editUser(props.user)"
+            >
+              edit
+            </v-icon>
+            <v-icon
+              small
+              @click="deleteUser(props.user)"
+            >
+              delete
+            </v-icon>
+          </td>
         </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-form
-                ref="form"
-                v-model="valid"
-                lazy-validation
-              >
-                <v-layout wrap>
-                  <v-flex xs12 sm6 md4>
-                    <v-text-field
-                      v-model="editedUser.name"
-                      required
-                      label="Username"
-                    >
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 sm6 md4>
-                    <v-text-field
-                      v-model="editedUser.email"
-                      required
-                      label="Email"
-                    >
-
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 sm6 md4>
-                    <v-text-field
-                      v-model="editedUser.birthDate"
-                      required
-                      label="Birth Date"
-                    >
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 sm6 md4>
-                    <v-text-field
-                      v-model="editedUser.entryDate"
-                      required
-                      label="Entry Date"
-                    >
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 sm6 md4>
-                    <v-text-field
-                      v-model="editedUser.exitDate"
-                      required
-                      label="Exit Date">
-                    </v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-form>
-            </v-container>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn outline color="white" flat @click="close"><span>Cancel</span></v-btn>
-            <v-btn outline color="white" flat @click="buttonMethod(editedUser)"><span> Save </span></v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-toolbar>
-
-    <v-data-table
-      :headers="headers"
-      :items="users"
-      class="elevation-1"
-      no-data
-      :pagination.sync="pagination"
-    >
-      <template v-slot:items="props">
-        <td class="text-xs-left">{{ props.item.name }}</td>
-        <td class="text-xs-left">{{ props.item.email.toString()}}</td>
-        <td class="text-xs-left">{{ props.item.birthDate }}</td>
-        <td class="text-xs-left">{{ props.item.entryDate }}</td>
-        <td class="text-xs-left">{{ props.item.exitDate }}</td>
-        <td class="justify-center layout px-0" >
-          <v-icon
-            small
-            class="mr-2"
-            @click="editUser(props.user)"
-          >
-            edit
-          </v-icon>
-          <v-icon
-            small
-            @click="deleteUser(props.user)"
-          >
-            delete
-          </v-icon>
-        </td>
-      </template>
-    </v-data-table>
-  </v-app>
+      </v-data-table>
+    </v-app>
+  </v-container>
 </template>
 
 <script>
 
   export default {
     data: () => ({
+      switch1: false,
       pagination: {
         rowsPerPage: 10,
       },
@@ -123,7 +152,6 @@
       stateChanger: 0,
       newUser: 'New User',
       valid: true,
-
       // nameRules: [
       //   v => !!v || 'Name is required',
       //   v => (v && v.length > 0) || 'Name must be a name XD'
@@ -228,31 +256,37 @@
       update(user) {
 
 
-      axios.put(`http://localhost:3000/pokemon/${item._id}`, item)
-              .then(response => {
-                let arr = [];
-                for (let i = 0; i < this.pokemon.length; i++) {
-                  if (response.data._id === this.pokemon[i]._id) arr.push(response.data);
-                  else arr.push(this.pokemon[i]);
-                }
-                this.pokemon = arr;
-                this.close();
-              })
-              .catch(e => {
-                console.error('erro no update', e);
-                this.close();
-              });
+        axios.put(`http://localhost:3000/pokemon/${item._id}`, item)
+          .then(response => {
+            let arr = [];
+            for (let i = 0; i < this.pokemon.length; i++) {
+              if (response.data._id === this.pokemon[i]._id) arr.push(response.data);
+              else arr.push(this.pokemon[i]);
+            }
+            this.pokemon = arr;
+            this.close();
+          })
+          .catch(e => {
+            console.error('erro no update', e);
+            this.close();
+          });
       },
 
       save(user) {
-      axios.post(`http://localhost:3000/pokemon`, item);
-      this.close()
-      d},
+        axios.post(`http://localhost:3000/pokemon`, item);
+        this.close();
+      },
     },
   }
 </script>
 
 
 <style scoped>
+
+  e {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    line-height: 20px;
+  }
 
 </style>

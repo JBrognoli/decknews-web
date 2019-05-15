@@ -1,12 +1,23 @@
 <template>
-  <v-btn outline flat>
-    <span><slot/></span>
-  </v-btn>
+  <v-btn dark outline class="subheading" @click="doClick" v-on="$listeners"><span><slot/></span></v-btn>
 </template>
 
 <script>
   export default {
-    name: "BaseButton"
+    name: "BaseButton",
+    methods: {
+      doClick() {
+        if (this.href) {
+          location.href = this.href
+        }
+      }
+    },
+    props: {
+      href: {
+        type: String,
+        default: undefined,
+      }
+    }
   }
 </script>
 

@@ -1,24 +1,17 @@
 <template>
   <div>
-  <v-btn
-    block
-    color="red"
-    dark
-    @click="snackbar = true"
-  >
-    Show Snackbar
-  </v-btn>
   <v-snackbar
     v-model="snackbar"
-    :bottom="y"
-    :left="x"
+    :bottom="y === 'bottom'"
+    :left="x === 'left'"
   >
     {{ text }}
     <v-btn
-      flat
       @click="snackbar = false"
+      outline
+      class="pa-1 pl-3 pr-3"
     >
-      Close
+      <span>close</span>
     </v-btn>
   </v-snackbar>
   </div>
@@ -26,7 +19,7 @@
 
 <script>
   export default {
-    name: "Snackbar",
+    name: "BaseSnackbar",
     data () {
       return {
         snackbar: false,
@@ -43,13 +36,18 @@
       },
       text: {
         type: String,
-        default: 'Pattern'
+        default: 'Session Started'
       },
       timeout: {
         type: Number,
         default: 6000,
       }
-    }
+    },
+    methods: {
+      openSnackbar () {
+        this.snackbar = true;
+      },
+    },
   }
 </script>
 
