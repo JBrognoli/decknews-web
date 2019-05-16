@@ -16,7 +16,7 @@
       href: {
         type: String,
         default: undefined,
-      }
+      },
     }
   }
 </script>

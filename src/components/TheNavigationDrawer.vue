@@ -12,10 +12,10 @@
       <v-list class="pa-0">
         <v-list-tile avatar>
           <v-list-tile-avatar>
-            <img src="https://image.prntscr.com/image/MmJyVD9mQO66g3kIcnWLBw.png">
+            <img src="https://yt3.ggpht.com/a/AGF-l7_mseyJ3WVEf5swff0n9BrF_E8RWlQdDqwpfQ=s900-mo-c-c0xffffffff-rj-k-no">
           </v-list-tile-avatar>
           <v-list-tile-content>
-            <v-list-tile-title> Thiago Girafinsky</v-list-tile-title>
+            <v-list-tile-title> Realistic Sonic</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action>
             <v-btn

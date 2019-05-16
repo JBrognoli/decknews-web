@@ -11,6 +11,7 @@
   import JustifyForm from "../components/JustifyForm.vue"
   import BaseButton from "../components/BaseButton";
   import UserConfig from "../components/UserConfig";
+  import NewsCard from "../components/NewsCard";
 
   export default {
     name: "Styleguide",
@@ -19,6 +20,7 @@
       }
     },
     components: {
+        NewsCard,
       UserConfig,
       BaseButton,
       TimeRegister,
@@ -44,6 +46,9 @@
 
 <template>
   <div>
+    <h1>News Card Component</h1>
+    <NewsCard></NewsCard>
+    <br><br><br>
     <h1>User Config component</h1>
     <UserConfig ref="UserConfig"></UserConfig>
     <BaseButton @click="openUserConfig">userconfig</BaseButton>
