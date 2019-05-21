@@ -1,5 +1,7 @@
 <template>
-  $END$
+  <v-layout class="ma-1">
+
+  </v-layout>
 </template>
 
 <script>

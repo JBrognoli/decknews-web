@@ -2,12 +2,11 @@
   <v-navigation-drawer
     v-model="drawer"
     app
-    :mini-variant.sync="mini"
+    mini-variant
     hide-overlay
-    stateless
+    permanent
   >
     <JustifyForm ref="JustifyForm"></JustifyForm>
-    <BaseSnackbar ref="BaseSnackbar2" text="STILL IN PROGRESS..."></BaseSnackbar>
     <v-toolbar class="transparent">
       <v-list class="pa-0">
         <v-list-tile avatar>
@@ -61,7 +60,7 @@
           <v-list-tile-title class="common">VIEW STYLEGUIDE</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile @click="wip">
+      <v-list-tile>
         <v-list-tile-action>
           <v-icon>settings</v-icon>
         </v-list-tile-action>
@@ -107,9 +106,6 @@
       },
       goStyleguide() {
         this.$router.push('/styleguide')
-      },
-      wip() {
-        this.$refs.BaseSnackbar2.openSnackbar();
       },
       openDrawer() {
         this.mini = !this.mini;

@@ -75,8 +75,8 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <div class="ma-2">
-          <v-btn flat @click="dialog = false" outline>Close</v-btn>
-          <v-btn flat @click="dialog = false" outline>Save</v-btn>
+          <BaseButton>Close</BaseButton>
+          <BaseButton>Save</BaseButton>
         </div>
       </v-card-actions>
     </v-card>
@@ -84,8 +84,10 @@
 </template>
 
 <script>
+  import BaseButton from "./BaseButton";
   export default {
     name: "JustifyForm",
+    components: {BaseButton},
     data: () => ({
       min: 0,
       max: 12,

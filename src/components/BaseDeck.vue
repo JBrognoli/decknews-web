@@ -1,5 +1,5 @@
 <template>
-  $END$
+  <h1>fk it</h1>
 </template>
 
 <script>

@@ -1,18 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue/types'
+import Vuex from 'vuex/types'
+import moduloes from './modules'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    userInfo: {
-
-    }
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  }
+  modules,
+  strict: process.env.NODE_ENV !== 'production'
 })

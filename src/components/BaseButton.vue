@@ -1,5 +1,5 @@
 <template>
-  <v-btn dark outline class="subheading" @click="doClick" v-on="$listeners"><span><slot/></span></v-btn>
+  <v-btn dark class="subheading" @click="doClick" v-on="$listeners"><span><slot/></span></v-btn>
 </template>
 
 <script>

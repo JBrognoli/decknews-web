@@ -4,6 +4,7 @@ import Styleguide from './views/Styleguide.vue'
 import Login from './views/Login.vue'
 import BaseTable from './components/BaseTable.vue'
 import TimeRegister from "@/components/TimeRegister.vue";
+import BaseDeck from "./components/BaseDeck.vue"
 
 
 Vue.use(Router);
@@ -20,7 +21,7 @@ export default new Router({
         {
             path: '/home',
             name: 'home',
-            component: TimeRegister
+            component: BaseDeck
         },
         {
             path: '/users',

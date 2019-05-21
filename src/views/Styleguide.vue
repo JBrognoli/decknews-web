@@ -46,8 +46,10 @@
 
 <template>
   <div>
+
     <h1>News Card Component</h1>
     <NewsCard></NewsCard>
+    <NewsCard card-title="Bitcoin raising" card-text="batatatatata" :card-actions="['batata', 'feijao']"></NewsCard>
     <br><br><br>
     <h1>User Config component</h1>
     <UserConfig ref="UserConfig"></UserConfig>
