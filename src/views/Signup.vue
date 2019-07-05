@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <v-card class="elevation-12" width="45em">
         <v-toolbar>
-          <v-toolbar-title class="display-1"><span>Sign in - Deck News</span></v-toolbar-title>
+          <v-toolbar-title class="display-1"><span>Create your account:</span></v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-form>
@@ -12,38 +12,39 @@
                           type="password"
                           v-on:keyup.enter="goHome"
             ></v-text-field>
-            <p class="text-xs-center mt-1"> You don't have an account? You can create one
-              <a @click="goSignup"
-                 style="color: orangered"> here
-              </a>
-            </p>
+            <p class="text-xs-center mt-1"> If you already have an account, click
+              <a @click="goLogin"
+              style="color: orangered"> here
+            </a></p>
           </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn class="subheading pt-1" @click="goHome"><span>Login</span></v-btn>
+          <v-btn class="subheading pt-1" @click="goHome"><span>Create</span></v-btn>
         </v-card-actions>
       </v-card>
     </v-layout>
+    <BaseSnackbar ref="BaseSnackbarAccount" text="Your account was created"></BaseSnackbar>
   </v-container>
 </template>
 
 <script>
+  import BaseSnackbar from "../components/BaseSnackbar";
 
   export default {
-    name: "Login",
+    name: "Signup",
+    components: {BaseSnackbar},
     methods: {
-      goHome() {
-        this.$router.push('home')
+      goLogin() {
+        this.$router.push('/')
       },
-      goSignup() {
-        this.$router.push('Signup')
+      goHome() {
+        this.$refs.BaseSnackbarAccount.openSnackbar();
       }
     }
   }
-
 </script>
 
-<style>
+<style scoped>
 
 </style>

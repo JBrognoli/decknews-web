@@ -5,6 +5,7 @@ import Login from './views/Login.vue'
 import BaseTable from './components/BaseTable.vue'
 import TimeRegister from "@/components/TimeRegister.vue";
 import BaseDeck from "./components/BaseDeck.vue"
+import Signup from "./views/Signup.vue";
 
 
 Vue.use(Router);
@@ -17,6 +18,11 @@ export default new Router({
             path: '/',
             name: 'Login',
             component: Login
+        },
+        {
+            path: '/signup',
+            name: 'Sign Up',
+            component: Signup,
         },
         {
             path: '/home',

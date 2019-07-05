@@ -1,48 +1,45 @@
 <template>
-  <v-card>
-    <v-card-title>
-      <span>{{ this.cardTitle }}</span>
-    </v-card-title>
-
-    <v-card-text>
-      <span>{{ this.cardText }}</span>
-    </v-card-text>
-
-    <v-divider></v-divider>
-
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <BaseButton v-for="action in cardActions">{{ action }}</BaseButton>
-    </v-card-actions>
-  </v-card>
+  <v-flex style="max-width: 400px">
+    <v-card dark>
+      <v-card-title primary-title class="pa-1 pl-3 pt-2">
+        <h3 class="caption font-weight-bold"> {{ title }}</h3>
+      </v-card-title>
+      <v-card-text class="caption font-weight-light pa-2 pl-3">
+        <div>
+          <div> {{ mainText }}</div>
+        </div>
+      </v-card-text>
+      <v-card-text class="caption font-weight-thin pa-1 pl-3">
+        <div>
+          <div> Author: {{ authorName }} {{ date }}</div>
+        </div>
+      </v-card-text>
+    </v-card>
+  </v-flex>
 </template>
 
 <script>
-    import BaseButton from "./BaseButton";
-    export default {
-        name: "NewsCard",
-        components: {BaseButton},
-        props: {
-            cardTitle: {
-                type: String,
-                default: 'título do card'
-            },
-            cardText: {
-                type: String,
-                default: 'texto do card'
-            },
-            cardActions: {
-                type: Array,
-                default: [
-                    'Cancelar',
-                    'Confirmar'
-                ],
-            }
-        },
-        data() {
-            return {}
-        },
+  export default {
+    name: "BaseCard",
+    props: {
+      title: {
+        type: String,
+        default: ""
+      },
+      mainText: {
+        type: String,
+        default: ""
+      },
+      authorName: {
+        type: String,
+        default: ""
+      },
+      date: {
+        type: String,
+        default: ""
+      }
     }
+  }
 </script>
 
 <style scoped>

@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <v-app dark>
-      <BaseSnackbar ref="BaseSnackBar"></BaseSnackbar>
-      <SessionStart ref="SessionStart"></SessionStart>
-      <UserReport ref="UserReport"></UserReport>
-
-      <div v-if="logInScreen ">
+      <div v-if="logInScreen && logInScreen2">
         <TheNavigationDrawer ref="NavigationDrawer"></TheNavigationDrawer>
         <TheFooter></TheFooter>
       </div>
@@ -43,6 +39,9 @@
     computed: {
       logInScreen() {
         return this.$route.path !== '/'
+      },
+      logInScreen2() {
+        return this.$route.path !== '/Signup'
       },
     }
   }

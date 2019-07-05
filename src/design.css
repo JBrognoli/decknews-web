@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Germania+One');
+@import url('http://fontpro.com/sedan-sc-font-16190');
 
 span {
     background: -webkit-linear-gradient(0deg, #ff8a00,#da1b60);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: 'Germania One', cursive;
+    font-family: 'Sedan SC', cursive;
 }
 

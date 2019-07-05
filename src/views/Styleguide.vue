@@ -12,6 +12,7 @@
   import BaseButton from "../components/BaseButton";
   import UserConfig from "../components/UserConfig";
   import NewsCard from "../components/NewsCard";
+  import BaseColumn from "../components/BaseColumn";
 
   export default {
     name: "Styleguide",
@@ -20,6 +21,7 @@
       }
     },
     components: {
+        BaseColumn,
         NewsCard,
       UserConfig,
       BaseButton,
@@ -46,10 +48,13 @@
 
 <template>
   <div>
-
     <h1>News Card Component</h1>
     <NewsCard></NewsCard>
-    <NewsCard card-title="Bitcoin raising" card-text="batatatatata" :card-actions="['batata', 'feijao']"></NewsCard>
+    <br><br><br>
+    <h1> Base Column Component</h1>
+    <BaseColumn></BaseColumn>
+    <br><br><br>
+    <NewsCard title="Bitcoin raising" main-text="batatatatata" author-name="Lucas Correa" date="15/09" :card-actions="['batata', 'feijao']"></NewsCard>
     <br><br><br>
     <h1>User Config component</h1>
     <UserConfig ref="UserConfig"></UserConfig>
