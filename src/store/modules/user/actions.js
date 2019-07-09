@@ -22,9 +22,30 @@ const updateExistingThemes = ({ commit }, payload) => {
   }, 100)
 };
 
+const updateUserPhotoURL = ({ commit }, payload) => {
+  setTimeout( () => {
+    commit('UPDATE_USER_PHOTOURL', payload)
+  }, 100)
+};
+
+const updateBackgroundSelector = ({ commit }, payload) => {
+  setTimeout( () => {
+    commit('UPDATE_BACKGROUND_SELECTOR', payload)
+  }, 100)
+};
+
+const updateSelectedBackground = ({ commit }, payload) => {
+  setTimeout( () => {
+    commit('UPDATE_SELECTED_BACKGROUND', payload)
+  }, 100)
+};
+
 export {
   updateBaseSnackbar,
   updateColumnAdd,
   updateColumnDelete,
-  updateExistingThemes
+  updateExistingThemes,
+  updateUserPhotoURL,
+  updateBackgroundSelector,
+  updateSelectedBackground
 }

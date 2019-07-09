@@ -34,6 +34,7 @@
     <h1> Base Button Component</h1>
     <BaseButton>Testante</BaseButton>
     <br><br><br>
+
   </div>
 </template>
 

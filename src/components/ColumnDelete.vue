@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="columnDelete.open" width="500" dark class="elevation-10" persistent>
+    <v-dialog v-model="columnDelete.open" width="500" dark persistent>
       <v-card>
         <v-card-title class="title">
           <p>Select column's theme</p>
@@ -10,7 +10,7 @@
           <v-flex xs10 md11 lg10>
             <v-select
               v-model="removeTheme"
-              :items="this.existingThemes"
+              :items="existingThemes"
               label="Theme"
               prepend-icon="collections_bookmark"
               menu-props="offsetY"
@@ -42,14 +42,10 @@
     data() {
       return {
         removeTheme: '',
-        existingThemes: this.bringThemes,
       }
     },
     computed: {
-      ...mapState('user', ['columnDelete']),
-      bringThemes() {
-        return this.$store.getters.bringThemes
-      }
+      ...mapState('user', ['columnDelete', 'existingThemes']),
     },
     methods: {
       ...mapActions('user', ['updateExistingThemes']),
@@ -66,11 +62,12 @@
       }
     },
     created() {
+      const catchThemes = [];
       if (localStorage.hasOwnProperty('themes')) {
-        this.existingThemes = JSON.parse(localStorage.getItem('themes'));
+        const catchThemes = JSON.parse(localStorage.getItem('themes'));
       }
-      let array = this.existingThemes;
-      this.updateExistingThemes({array});
+      let array = catchThemes;
+      this.updateExistingThemes(array);
     }
   }
 </script>

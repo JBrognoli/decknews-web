@@ -1,7 +1,7 @@
 <template>
   <v-container class="pa-0 mx-2">
     <v-layout>
-      <div v-for="(query, index) in queries" :key="index">
+      <div v-for="(query, index) in existingThemes" :key="index">
         <BaseColumn :query="query"></BaseColumn>
       </div>
     </v-layout>
@@ -16,9 +16,7 @@
     name: "BaseDeck",
     components: {BaseColumn},
     data () {
-      return {
-        queries: this.existingThemes
-      }
+      return {}
     },
     computed: {
       ...mapState('user', ['existingThemes'])
@@ -32,7 +30,7 @@
         this.queries = JSON.parse(localStorage.getItem('themes'));
       }
       array = this.queries;
-      this.updateExistingThemes({array});
+      this.updateExistingThemes(array);
     }
   }
 </script>

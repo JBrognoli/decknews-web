@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app dark style="background-color: #2a2a2a">
+    <v-app dark :style="styles">
       <div v-if="logInScreen && logInScreen2">
         <TheNavigationDrawer ref="NavigationDrawer"></TheNavigationDrawer>
       </div>
@@ -17,12 +17,14 @@
 <script>
   import BaseSnackbar from "./components/BaseSnackbar"
   import TheToolbar from "./components/TheToolbar";
-  import TheNavigationDrawer from "./components/TheNavigationDrawer";
+  import TheNavigationDrawer from "./components/TheNavigationDrawer"
+  import {mapMutations} from 'vuex';
 
   export default {
     name: "App",
     components: {BaseSnackbar, TheToolbar, TheNavigationDrawer},
     data: () => ({
+      multipleBackgrounds: {},
     }),
     computed: {
       logInScreen() {
@@ -31,6 +33,23 @@
       logInScreen2() {
         return this.$route.path !== '/Signup'
       },
+      defBackground() {
+        return this.$store.state.user.selectedBackground
+      },
+      styles() {
+        return {
+          'background-image': `url('${this.defBackground}')`,
+          'background-repeat': 'no-repeat',
+          'background-size': 'cover'
+        }
+      }
+    },
+    methods: {
+      ...mapMutations('user', ['UPDATE_SELECTED_BACKGROUND'])
+    },
+    created() {
+      const background = localStorage.getItem('definedBackground');
+      this.UPDATE_SELECTED_BACKGROUND(background);
     }
   }
 </script>
@@ -48,7 +67,7 @@
   }
 
   .grabient {
-    background: -webkit-linear-gradient(90deg, #ff8a00,#da1b60);
+    background: -webkit-linear-gradient(90deg, #ff8a00, #da1b60);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -62,4 +81,5 @@
     width: 100%;
     overflow-y: hidden;
   }
+
 </style>

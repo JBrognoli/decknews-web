@@ -66,8 +66,8 @@
       ...mapState('user', ['baseSnackbar'])
     },
     methods: {
-      ...mapActions('user', ['updateBaseSnackbar']),
-      ...mapMutations('user', ['UPDATE_BASE_SNACKBAR']),
+      ...mapActions('user', ['updateBaseSnackbar', 'updateUserPhotoURL']),
+      ...mapMutations('user', ['UPDATE_BASE_SNACKBAR', 'UPDATE_USER_PHOTOURL']),
       goSignup() {
         this.$router.push('Signup')
       },
@@ -88,6 +88,11 @@
         firebase.auth().signInWithPopup(provider)
           .then((result) => {
             console.log('user', result);
+            console.log('user', result.user);
+            console.log('userPhoto', result.user.photoURL);
+            let photoURL = result.user.photoURL;
+            localStorage.setItem('photoURL', photoURL);
+            this.UPDATE_USER_PHOTOURL(photoURL);
             this.$router.replace('home');
           }).catch((err) => {
           this.UPDATE_BASE_SNACKBAR({

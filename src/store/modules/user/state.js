@@ -1,6 +1,5 @@
 export default {
-  user: {
-    userInfo: '',
+  userInfo: {
     photoURL: '',
   },
   baseSnackbar: {
@@ -13,5 +12,9 @@ export default {
   columnDelete: {
     open: false,
   },
+  backgroundSelector: {
+    open: false,
+  },
+  selectedBackground: '',
   existingThemes: [],
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="columnAdd.open" width="500" dark class="elevation-10" persistent>
+    <v-dialog v-model="columnAdd.open" width="500" dark persistent>
       <v-card>
         <v-card-title class="title">
           <p>What's the new column's theme?</p>
