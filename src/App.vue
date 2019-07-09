@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-    <v-app dark>
+    <v-app dark style="background-color: #2a2a2a">
       <div v-if="logInScreen && logInScreen2">
         <TheNavigationDrawer ref="NavigationDrawer"></TheNavigationDrawer>
-        <TheFooter></TheFooter>
       </div>
       <v-layout>
-        <v-content>
+        <v-content class="all">
           <router-view/>
         </v-content>
       </v-layout>
@@ -16,26 +15,15 @@
 </template>
 
 <script>
-  import BaseTable from "./components/BaseTable";
   import BaseSnackbar from "./components/BaseSnackbar"
-  import SessionStart from "./components/SessionStart"
-  import TimeRegister from "./components/TimeRegister"
-  import UserReport from "./components/UserReport";
-  import JustifyForm from "./components/JustifyForm";
   import TheToolbar from "./components/TheToolbar";
   import TheNavigationDrawer from "./components/TheNavigationDrawer";
-  import TheFooter from "./components/TheFooter";
 
   export default {
     name: "App",
-    components: {JustifyForm, UserReport, BaseTable, BaseSnackbar, SessionStart, TimeRegister, TheFooter, TheToolbar, TheNavigationDrawer},
+    components: {BaseSnackbar, TheToolbar, TheNavigationDrawer},
     data: () => ({
     }),
-    methods: {
-      openSnackbar() {
-        this.$refs.BaseSnackBar.openSnackbar();
-      },
-    },
     computed: {
       logInScreen() {
         return this.$route.path !== '/'
@@ -49,4 +37,29 @@
 
 <style>
 
+  .all {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 14px;
+    overflow-y: hidden;
+  }
+
+  body {
+    overflow-y: hidden;
+  }
+
+  .grabient {
+    background: -webkit-linear-gradient(90deg, #ff8a00,#da1b60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .font-sedan {
+    font-family: 'Sedan SC', cursive;
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+  }
 </style>
