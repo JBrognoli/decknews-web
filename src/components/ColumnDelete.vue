@@ -3,7 +3,7 @@
     <v-dialog v-model="columnDelete.open" width="500" dark persistent>
       <v-card>
         <v-card-title class="title">
-          <p>Select column's theme</p>
+          <p>{{ $t('message.selectColumnTheme') }}</p>
         </v-card-title>
         <v-divider class="mx-2"></v-divider>
         <v-card-text>
@@ -11,7 +11,7 @@
             <v-select
               v-model="removeTheme"
               :items="existingThemes"
-              label="Theme"
+              :label="$t('message.theme')"
               prepend-icon="collections_bookmark"
               menu-props="offsetY"
             ></v-select>
@@ -19,12 +19,12 @@
         </v-card-text>
         <v-card-actions class="pl-3 pb-3">
           <v-flex class="ma-1 text-xs-right">
-            <v-btn flat @click="columnDelete.open = false" class="body-2"><span class="grabient">Cancel</span></v-btn>
+            <v-btn flat @click="columnDelete.open = false" class="body-2"><span class="grabient">{{ $t('message.cancel') }}</span></v-btn>
           </v-flex>
           <div class="text-xs-right">
             <v-flex xs12 sm4>
               <v-btn class="body-2" @click="removeFromThemes">
-                <span class="grabient">Confirm</span>
+                <span class="grabient">{{ $t('message.confirm') }}</span>
               </v-btn>
             </v-flex>
           </div>

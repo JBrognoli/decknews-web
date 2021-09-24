@@ -8,7 +8,7 @@
         outline
         class="pa-1 pl-3 pr-3"
       >
-        <span class="grabient" @click="baseSnackbar.open = false">close</span>
+        <span class="grabient" @click="baseSnackbar.open = false">{{ $t('message.close') }}</span>
       </v-btn>
     </v-snackbar>
   </div>

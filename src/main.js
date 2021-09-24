@@ -9,6 +9,7 @@ import Vuetify from 'vuetify'
 import firebase from 'firebase';
 import VueLocalStorage from 'vue-localstorage'
 import firebaseui from 'firebaseui';
+import i18n from './translations/lang'
 
 Vue.use(VueLocalStorage);
 
@@ -47,6 +48,7 @@ firebase.auth().onAuthStateChanged(() => {
     new Vue({
       router,
       store,
+      i18n,
       render: h => h(App)
     }).$mount('#app')
   }

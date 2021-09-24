@@ -3,7 +3,7 @@
     <v-dialog v-model="backgroundSelector.open" width="750" dark  persistent>
       <v-card>
         <v-card-title class="title">
-          <p class="grabient headline">Choose your background</p>
+          <p class="grabient headline">{{ $t('message.chooseBackground') }}</p>
         </v-card-title>
         <v-divider class="mx-2"></v-divider>
         <v-card-text>
@@ -37,7 +37,7 @@
           <div class="text-xs-right">
             <v-flex xs12 sm4>
               <v-btn class="body-2" @click="confirmBackground">
-                <span class="grabient">Confirm</span>
+                <span class="grabient">{{ $t('message.confirm') }}</span>
               </v-btn>
             </v-flex>
           </div>

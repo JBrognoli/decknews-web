@@ -1,0 +1,40 @@
+{
+  "pt_BR": {
+    "message": {
+      "add": "Adicionar",
+      "column": "Coluna",
+      "deleteColumn": "Deletar coluna",
+      "readMore": "Leia mais",
+      "unknownAuthor": "Autor desconhecido",
+      "selectColumnTheme": "Selecione o tema da coluna",
+      "theme": "Tema",
+      "chooseBackground": "Escolha seu background",
+      "columnAddTitle": "Qual o tema da nova coluna?",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "close": "Fechar",
+      "language": "Idioma",
+      "english": "Inglês",
+      "portuguese": "Português"
+    }
+  },
+  "eng_US": {
+    "message": {
+      "add": "Add",
+      "column": "Column",
+      "deleteColumn": "Delete column",
+      "readMore": "Read more",
+      "unknownAuthor": "Unknown author",
+      "selectColumnTheme": "Select the column's theme",
+      "theme": "Theme",
+      "chooseBackground": "Choose your background",
+      "columnAddTitle": "What's the new column's theme?",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "close": "Close",
+      "language": "Language",
+      "english": "English",
+      "portuguese": "Portuguese"
+    }
+  }
+}
